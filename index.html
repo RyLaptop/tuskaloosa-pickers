@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuskaloosa Pickers — Tuscaloosa, AL</title>
+<meta name="description" content="Tuskaloosa Pickers, 247 Skyland E Blvd, Tuscaloosa AL. Vintage and resale, owned by Tracie and Bo Burroughs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f0e6d2;
+    --charcoal: #2b2825;
+    --teal: #3e6e6b;
+    --mustard: #c68a2e;
+    --rose: #c77b6d;
+    --line: rgba(43,40,37,0.16);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--charcoal); font-family: 'Nunito Sans', sans-serif; font-size: 17px; line-height: 1.6; }
+  .display { font-family: 'Special Elite', monospace; line-height: 1.15; letter-spacing: -0.01em; }
+  a { color: inherit; }
+
+  header { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; max-width: 1080px; margin: 0 auto; }
+  .nav-name { font-family: 'Special Elite', monospace; font-size: 1.25rem; }
+  .nav-links { display: flex; gap: 28px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .nav-links a { text-decoration: none; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta { background: var(--teal); color: var(--paper); padding: 10px 20px; text-decoration: none; font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  @media (max-width: 720px) { .nav-links { display: none; } }
+
+  .hero { position: relative; background: var(--charcoal); color: var(--paper); padding: 100px 24px 80px; overflow: hidden; }
+  .hero-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .eyebrow { font-size: 0.82rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mustard); margin-bottom: 20px; font-weight: 700; }
+  .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); max-width: 760px; }
+  .hero-sub { font-size: 1.1rem; max-width: 480px; margin-top: 24px; color: rgba(240,230,210,0.8); font-family: 'Nunito Sans', sans-serif; }
+  .hero-cta { display: flex; gap: 16px; margin-top: 36px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 14px 28px; text-decoration: none; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; border: 2px solid transparent; }
+  .btn-primary { background: var(--mustard); color: var(--charcoal); }
+  .btn-ghost { border-color: var(--paper); color: var(--paper); }
+
+  .postmark {
+    position: absolute;
+    top: 50px;
+    right: 60px;
+    width: 130px;
+    height: 130px;
+    border: 3px solid var(--paper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: rotate(-12deg);
+    opacity: 0.55;
+  }
+  .postmark::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px dashed var(--paper);
+    border-radius: 50%;
+  }
+  .postmark span {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  @media (max-width: 780px) { .postmark { display: none; } }
+
+  section { padding: 76px 24px; max-width: 1080px; margin: 0 auto; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 44px; border-bottom: 1px solid var(--line); padding-bottom: 18px; }
+  .section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); }
+  .section-tag { font-size: 0.8rem; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+
+  .about { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; }
+  .about p { margin-bottom: 16px; max-width: 54ch; }
+  .about-block { background: var(--charcoal); color: var(--paper); padding: 32px; font-size: 0.9rem; }
+  .about-block dt { color: var(--mustard); text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.72rem; margin-top: 20px; font-weight: 700; }
+  .about-block dt:first-child { margin-top: 0; }
+  .about-block dd { margin-top: 4px; }
+  @media (max-width: 780px) { .about { grid-template-columns: 1fr; } }
+
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .cat-card { background: var(--charcoal); color: var(--paper); padding: 26px 22px; border-top: 4px solid var(--teal); }
+  .cat-card:nth-child(2) { border-top-color: var(--mustard); }
+  .cat-card:nth-child(3) { border-top-color: var(--rose); }
+  .cat-card h3 { font-family: 'Special Elite', monospace; font-size: 1.05rem; margin-bottom: 10px; }
+  .cat-card p { font-size: 0.86rem; color: rgba(240,230,210,0.75); }
+  @media (max-width: 780px) { .cat-grid { grid-template-columns: 1fr; } }
+
+  .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .info-card { background: var(--paper); padding: 32px; }
+  .info-card h3 { font-family: 'Special Elite', monospace; font-size: 1.1rem; color: var(--teal); margin-bottom: 14px; }
+  .hours-row { display: flex; justify-content: space-between; font-size: 0.9rem; padding: 5px 0; border-bottom: 1px dashed var(--line); }
+  .hours-row:last-child { border-bottom: none; }
+  @media (max-width: 780px) { .info-grid { grid-template-columns: 1fr; } }
+
+  footer { background: var(--charcoal); color: rgba(240,230,210,0.75); padding: 48px 24px 32px; }
+  .footer-inner { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 24px; font-size: 0.85rem; }
+  .footer-name { font-family: 'Special Elite', monospace; font-size: 1.25rem; color: var(--paper); }
+  :focus-visible { outline: 2px solid var(--mustard); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="nav-name">Tuskaloosa Pickers</div>
+    <nav class="nav-links">
+      <a href="#finds">What We Carry</a>
+      <a href="#hours">Visit</a>
+    </nav>
+    <a class="nav-cta" href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="postmark"><span>EST.<br>TUSKALOOSA<br>PICKERS</span></div>
+  <div class="hero-inner">
+    <div class="eyebrow">247 Skyland E Blvd · Tuscaloosa, AL</div>
+    <h1 class="display">Somebody already owned this. That's the point.</h1>
+    <p class="hero-sub">Tracie and Bo Burroughs run Tuskaloosa Pickers, a vintage and resale shop stocked with things that already have a history before they get to you.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://www.facebook.com" target="_blank" rel="noopener">Message on Facebook</a>
+      <a class="btn btn-ghost" href="#finds">See What's In</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <h2 class="display">The Shop</h2>
+    <div class="section-tag">Skyland East</div>
+  </div>
+  <div class="about">
+    <div>
+      <p>Tracie and Bo Burroughs stock Tuskaloosa Pickers the way they'd shop it themselves: real vintage, real resale, priced for people who'd rather find something than order it.</p>
+      <p>Inventory turns over fast. What's on the floor this week won't be there next week, so following along is the only way to know what's in.</p>
+    </div>
+    <dl class="about-block">
+      <dt>Address</dt>
+      <dd>247 Skyland E Blvd<br>Tuscaloosa, AL 35405</dd>
+      <dt>Owners</dt>
+      <dd>Tracie &amp; Bo Burroughs</dd>
+      <dt>Contact</dt>
+      <dd>Message on Facebook or Instagram</dd>
+      <dt>Payment</dt>
+      <dd>Cash and card</dd>
+    </dl>
+  </div>
+</section>
+
+<section id="finds">
+  <div class="section-head">
+    <h2 class="display">What's In The Shop</h2>
+    <div class="section-tag">Turns over weekly</div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <h3>Furniture &amp; Decor</h3>
+      <p>Small vintage pieces, home decor, the odd standout find.</p>
+    </div>
+    <div class="cat-card">
+      <h3>Clothing &amp; Accessories</h3>
+      <p>Resale racks that change week to week.</p>
+    </div>
+    <div class="cat-card">
+      <h3>Collectibles</h3>
+      <p>Whatever came through the door that week.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="section-head">
+    <h2 class="display">Find Us</h2>
+    <div class="section-tag">Skyland East</div>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <h3>Hours</h3>
+      <div class="hours-row"><span>Wed – Sat</span><span>10am – 6pm</span></div>
+      <div class="hours-row"><span>Sun</span><span>12pm – 5pm</span></div>
+      <div class="hours-row"><span>Mon – Tue</span><span>Closed</span></div>
+    </div>
+    <div class="info-card">
+      <h3>Address</h3>
+      <p>247 Skyland E Blvd<br>Tuscaloosa, AL 35405</p>
+    </div>
+    <div class="info-card">
+      <h3>Follow</h3>
+      <p>New finds posted on Facebook and Instagram as they come in.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Tuskaloosa Pickers</div>
+      <p style="margin-top:8px;">247 Skyland E Blvd<br>Tuscaloosa, AL 35405</p>
+    </div>
+    <div>
+      <p>Wed–Sat 10–6 · Sun 12–5</p>
+      <p style="margin-top:8px;">Owned by Tracie &amp; Bo Burroughs</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
